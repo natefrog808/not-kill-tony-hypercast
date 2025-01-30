@@ -26,13 +26,6 @@ AI Agent Roles & Functionality:
 * **Interactive Elements:**  Potentially, viewers could interact with the environment (e.g., "throwing tomatoes" or "cheering") which the AI agents could react to in a limited way.
 * **Livestreaming/Recording:** The entire AI reenactment could be streamed or recorded within Hyperfy.io.
 
-**Challenges and Considerations:**
-
-* **Comedy is Complex:**  Capturing the nuance of live comedy, especially improvisation and crowd work, is a significant challenge for current AI.  The result might feel somewhat robotic or predictable.
-* **Data Requirements:**  Training the AI agents would require a massive amount of data, particularly for Tony's and Redban's personalities.
-* **Technical Feasibility:**  Integrating all these AI agents within Hyperfy.io and ensuring seamless interaction would be a complex technical undertaking.
-* **Ethical Considerations:**  Questions of ownership, attribution, and the potential for misrepresentation of the original performers would need to be addressed.
-
 **Potential Outcomes:**
 
 * **Novelty and Entertainment:**  The AI reenactment could be a fascinating experiment and provide a unique entertainment experience.
