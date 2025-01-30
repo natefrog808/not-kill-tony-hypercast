@@ -1,4 +1,4 @@
-# AI Reenactment of Kill Tony #100 in Hyperfy.io
+# AI Reenactment of Kill Tony in Hyperfy.io
 
 This conceptual summary outlines a hypothetical AI-driven reenactment of Kill Tony within the Hyperfy.io platform, focusing on the technical and creative possibilities.  It's important to remember this is a *concept* and may not reflect the actual capabilities of current AI or Hyperfy.io features.
 
