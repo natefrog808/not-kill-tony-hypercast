@@ -1,3 +1,4 @@
+```javascript
 import React, { useState, useEffect } from 'react';
 import { Clock, Users, Mic2, Video, BarChart, Settings, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,11 +7,9 @@ import { Button } from '@/components/ui/button';
 
 const ShowControl = () => {
   const [showState, setShowState] = useState({
-    status: 'standby', // standby, live, break, ended
-    currentPerformer: null,
+    status: 'standby',
     timeElapsed: 0,
     audienceCount: 0,
-    performerQueue: [],
     technicalStatus: {
       audio: 'optimal',
       video: 'optimal',
@@ -21,14 +20,22 @@ const ShowControl = () => {
   const [metrics, setMetrics] = useState({
     audienceEngagement: 0,
     laughterLevel: 0,
-    averagePerformanceScore: 0
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowState(prev => ({
+        ...prev,
+        timeElapsed: prev.timeElapsed + 1,
+        audienceCount: prev.audienceCount + Math.floor(Math.random() * 5)
+      }));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4 space-y-4">
-      {/* Main Control Panel */}
       <div className="grid grid-cols-3 gap-4">
-        {/* Show Status */}
         <Card className="col-span-2">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
@@ -78,7 +85,6 @@ const ShowControl = () => {
           </CardContent>
         </Card>
 
-        {/* Technical Status */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -117,7 +123,6 @@ const ShowControl = () => {
 
       {/* Performance Controls */}
       <div className="grid grid-cols-3 gap-4">
-        {/* Performer Queue */}
         <Card className="col-span-2">
           <CardHeader>
             <CardTitle>Performer Queue</CardTitle>
@@ -138,7 +143,6 @@ const ShowControl = () => {
           </CardContent>
         </Card>
 
-        {/* Performance Metrics */}
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -195,3 +199,4 @@ const ShowControl = () => {
 };
 
 export default ShowControl;
+```
