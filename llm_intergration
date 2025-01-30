@@ -1,3 +1,4 @@
+```typescript
 import { Configuration, OpenAIApi } from 'openai';
 import { Redis } from 'ioredis';
 
@@ -28,23 +29,23 @@ class LLMManager {
     this.redis = new Redis(redisUrl);
   }
 
-  // Prompt templates for different content types
+  // Updated prompt templates for an edgy style
   private readonly PROMPT_TEMPLATES = {
-    ROUTINE: `Generate a 60-second comedy routine for a comedian with the following traits:
+    ROUTINE: `Generate a bold and edgy 60-second comedy routine for a comedian with these traits:
     - Personality: {personality}
     - Style: {style}
     - Background: {background}
     
     The routine should:
-    - Be naturally conversational
-    - Include clear setups and punchlines
-    - Reference their background appropriately
-    - Match their personality traits
-    - Be time-appropriate for a 60-second set
+    - Be provocatively conversational
+    - Include sharp setups and punchlines
+    - Reference their background with wit
+    - Match their daring personality traits
+    - Fit a 60-second set
     
     Format: Setup | Punchline | Timing (seconds)`,
 
-    INTERVIEW: `Generate an interview response as a comedian with these traits:
+    INTERVIEW: `Generate a bold interview response as a comedian with these traits:
     - Personality: {personality}
     - Previous routine: {routine}
     - Question: {question}
@@ -52,18 +53,18 @@ class LLMManager {
     Response should:
     - Stay in character
     - Reference their routine if relevant
-    - Include both serious and humorous elements
+    - Include edgy and humorous elements
     - Match their established personality`,
 
-    CALLBACK: `Generate a callback/reference to a previous moment:
+    CALLBACK: `Generate a daring callback/reference:
     - Original content: {content}
     - Current context: {context}
-    - Desired tone: {tone}
+    - Desired tone: edgy
     
     Callback should:
-    - Feel natural and unforced
-    - Build on the original content
-    - Add new humorous elements`
+    - Feel naturally bold
+    - Build on the original content with audacity
+    - Add new provocative elements`
   };
 
   async generateRoutine(performer: Performer): Promise<ComedyRoutine> {
@@ -97,7 +98,7 @@ class LLMManager {
     const prompt = this.PROMPT_TEMPLATES.CALLBACK
       .replace('{content}', originalContent)
       .replace('{context}', currentContext)
-      .replace('{tone}', 'humorous');
+      .replace('{tone}', 'edgy');
 
     const response = await this.generateContent('callback', prompt);
     return response.content;
@@ -121,9 +122,9 @@ class LLMManager {
         model: 'gpt-4',
         prompt,
         max_tokens: 500,
-        temperature: type === 'routine' ? 0.8 : 0.6,
-        presence_penalty: 0.6,
-        frequency_penalty: 0.8,
+        temperature: 1.0, // Higher temperature for edgier content
+        presence_penalty: 0.7,
+        frequency_penalty: 0.9,
       });
 
       const response: LLMResponse = {
@@ -159,20 +160,17 @@ class LLMManager {
       timing: []
     };
 
-    let currentSetup = '';
-    
     lines.forEach(line => {
       const [setup, punchline, timing] = line.split('|').map(s => s.trim());
-      
+
       if (setup && punchline) {
         if (!routine.setup) {
           routine.setup = setup;
         }
         routine.punchlines.push(punchline);
         routine.timing.push(parseInt(timing) || 10);
-        
-        // Check for callback opportunities
-        if (this.contextWindow.some(ctx => 
+
+        if (this.contextWindow.some(ctx =>
           setup.toLowerCase().includes(ctx.toLowerCase()) ||
           punchline.toLowerCase().includes(ctx.toLowerCase())
         )) {
@@ -201,18 +199,18 @@ class ContentQualityChecker {
   private readonly QUALITY_CHECKS = {
     appropriateness: (content: string): boolean => {
       const inappropriateTerms = ['offensive_term_1', 'offensive_term_2'];
-      return !inappropriateTerms.some(term => 
+      return !inappropriateTerms.some(term =>
         content.toLowerCase().includes(term)
       );
     },
-    
+
     length: (routine: ComedyRoutine): boolean => {
       const totalTime = routine.timing.reduce((a, b) => a + b, 0);
       return totalTime >= 45 && totalTime <= 75; // Allow some flexibility
     },
-    
+
     structure: (routine: ComedyRoutine): boolean => {
-      return routine.setup.length > 0 && 
+      return routine.setup.length > 0 &&
              routine.punchlines.length > 0 &&
              routine.timing.every(t => t > 0);
     }
@@ -289,3 +287,4 @@ export class ContentGenerator {
     return routine;
   }
 }
+```
