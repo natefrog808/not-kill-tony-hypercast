@@ -1,3 +1,4 @@
+```typescript
 import { ElevenLabsAPI } from 'elevenlabs-api';
 import * as tone from 'tone';
 import { AudioContext, AudioBuffer } from 'web-audio-api';
@@ -66,25 +67,20 @@ class VoiceSynthesizer {
   }
 
   private calculateSpeechRate(performer: Performer): number {
-    // Base speed on personality traits
     const baseSpeed = 1.0;
     const energyFactor = performer.personality.energy * 0.3;
     const confidenceFactor = performer.personality.confidence * 0.2;
-    
     return baseSpeed + energyFactor - (1 - confidenceFactor);
   }
 
   private calculatePitch(performer: Performer): number {
-    // Customize pitch based on personality
     const basePitch = 1.0;
     const quirkinessFactor = performer.personality.quirkiness * 0.4;
     return basePitch + quirkinessFactor;
   }
 
   private async selectBaseVoice(personality: PersonalityTraits): Promise<string> {
-    // Match personality to most suitable base voice
     const voices = await this.elevenLabs.getVoices();
-    // Algorithm to select best matching voice...
     return 'selected_voice_id';
   }
 
@@ -94,7 +90,6 @@ class VoiceSynthesizer {
   ): Promise<AudioBuffer[]> {
     const audioSegments: AudioBuffer[] = [];
 
-    // Synthesize setup
     const setupAudio = await this.synthesizeSegment(
       routine.setup,
       voiceProfile,
@@ -102,16 +97,13 @@ class VoiceSynthesizer {
     );
     audioSegments.push(setupAudio);
 
-    // Synthesize punchlines with appropriate timing
     for (let i = 0; i < routine.punchlines.length; i++) {
       const punchline = routine.punchlines[i];
       const timing = routine.timing[i];
 
-      // Add pause before punchline
       const pause = this.createPause(0.5);
       audioSegments.push(pause);
 
-      // Synthesize punchline with emphasis
       const punchlineAudio = await this.synthesizeSegment(
         punchline,
         voiceProfile,
@@ -128,10 +120,8 @@ class VoiceSynthesizer {
     voiceProfile: VoiceProfile,
     cues: AudioCue[]
   ): Promise<AudioBuffer> {
-    // Apply SSML tags for emphasis and timing
     const ssml = this.generateSSML(text, cues);
 
-    // Generate base audio
     const audioData = await this.elevenLabs.generateAudio({
       text: ssml,
       voiceId: voiceProfile.baseVoice,
@@ -141,15 +131,13 @@ class VoiceSynthesizer {
       speakingRate: voiceProfile.settings.speed
     });
 
-    // Process audio with cues
     return this.processAudioWithCues(audioData, cues);
   }
 
   private generateSSML(text: string, cues: AudioCue[]): string {
     let ssml = `<speak version="1.0">`;
     ssml += `<prosody rate="${this.currentProfile.settings.speed}" pitch="${this.currentProfile.settings.pitch}">`;
-    
-    // Add emphasis and pauses based on cues
+
     cues.forEach(cue => {
       switch (cue.type) {
         case 'EMPHASIS':
@@ -196,7 +184,6 @@ class VoiceSynthesizer {
       audioBuffer.sampleRate
     );
 
-    // Apply audio processing based on cues
     for (let channel = 0; channel < audioBuffer.numberOfChannels; channel++) {
       const inputData = audioBuffer.getChannelData(channel);
       const outputData = processedBuffer.getChannelData(channel);
@@ -227,7 +214,6 @@ class VoiceSynthesizer {
     outputData: Float32Array,
     cue: AudioCue
   ) {
-    // Apply volume boost and subtle compression
     for (let i = 0; i < inputData.length; i++) {
       outputData[i] = inputData[i] * (cue.intensity || 1.2);
       if (outputData[i] > 0.8) outputData[i] = 0.8;
@@ -235,7 +221,6 @@ class VoiceSynthesizer {
     }
   }
 
-  // Performance Monitoring
   private performanceMetrics = {
     generateDuration: 0,
     processingDuration: 0,
@@ -247,7 +232,6 @@ class VoiceSynthesizer {
   }
 }
 
-// Voice Performance Controller
 class VoicePerformanceController {
   private synthesizer: VoiceSynthesizer;
   private audioContext: AudioContext;
@@ -284,7 +268,7 @@ class VoicePerformanceController {
 
     for (const segment of this.currentPerformance.audioSegments) {
       await this.playSegment(segment);
-      await this.waitForLaughs(); // Dynamic pause based on audience reaction
+      await this.waitForLaughs();
     }
   }
 
@@ -299,9 +283,9 @@ class VoicePerformanceController {
   }
 
   private async waitForLaughs(): Promise<void> {
-    // Implement audience reaction detection and dynamic timing
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
 }
 
 export { VoiceSynthesizer, VoicePerformanceController };
+```
