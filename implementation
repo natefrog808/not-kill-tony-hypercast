@@ -1,3 +1,4 @@
+```typescript
 // Core Types and Interfaces
 interface Performer {
   id: string;
@@ -35,14 +36,7 @@ interface AudienceReaction {
 // Core System Components
 class PerformerGenerator {
   async generateNewPerformer(): Promise<Performer> {
-    // Generate random personality traits
-    const personality = {
-      confidence: Math.random(),
-      energy: Math.random(),
-      quirkiness: Math.random(),
-      mainTraits: await this.generatePersonalityTraits()
-    };
-
+    const personality = await this.generatePersonality();
     return {
       id: crypto.randomUUID(),
       name: await this.generatePerformerName(),
@@ -53,32 +47,35 @@ class PerformerGenerator {
     };
   }
 
+  private async generatePersonality(): Promise<PersonalityTraits> {
+    return {
+      confidence: Math.random(),
+      energy: Math.random(),
+      quirkiness: Math.random(),
+      mainTraits: await this.generatePersonalityTraits()
+    };
+  }
+
   private async generatePersonalityTraits(): Promise<string[]> {
-    // Use LLM to generate consistent personality traits
     return ['neurotic', 'observant', 'self-deprecating'];
   }
 
   private async generatePerformerName(): Promise<string> {
-    // Use LLM to generate a unique stage name
     return 'Generated Name';
   }
 
   private async generateComedyStyle(personality: PersonalityTraits): Promise<string[]> {
-    // Match comedy style to personality
     return ['observational', 'anecdotal'];
   }
 
   private async generateBackgroundStory(personality: PersonalityTraits): Promise<string> {
-    // Generate consistent background story
     return 'Generated background story';
   }
 }
 
 class RoutineGenerator {
   async generateRoutine(performer: Performer): Promise<string> {
-    // Generate comedy routine based on performer's traits
     const prompt = this.buildPrompt(performer);
-    // Use LLM to generate routine
     return 'Generated routine';
   }
 
@@ -88,13 +85,11 @@ class RoutineGenerator {
 }
 
 class InterviewSystem {
-  async generateQuestion(performer: Performance): Promise<string> {
-    // Generate contextual interview questions based on performance
+  async generateQuestion(performance: Performance): Promise<string> {
     return 'Generated question';
   }
 
   async generateResponse(performer: Performer, question: string): Promise<string> {
-    // Generate in-character response
     return 'Generated response';
   }
 }
@@ -107,12 +102,10 @@ class AudienceManager {
   }
 
   calculateScore(performance: Performance): number {
-    // Calculate performance score based on audience reactions
     return 0.0;
   }
 
   getReactionTrend(): string {
-    // Analyze reaction patterns
     return 'trending';
   }
 }
@@ -138,7 +131,6 @@ class KillTonyAIController {
 
   private async initializeQueue() {
     const generator = new PerformerGenerator();
-    // Generate initial queue of performers
     this.performerQueue = await Promise.all(
       Array(10).fill(null).map(() => generator.generateNewPerformer())
     );
@@ -157,7 +149,6 @@ class KillTonyAIController {
     if (!this.currentPerformer) return;
 
     const routine = await this.routineGenerator.generateRoutine(this.currentPerformer);
-    // Execute performance and collect reactions
   }
 
   private async runInterview() {
@@ -170,11 +161,9 @@ class KillTonyAIController {
       this.currentPerformer,
       question
     );
-    // Execute interview interaction
   }
 
   private async updateQueue() {
-    // Add new performers as needed
     if (this.performerQueue.length < 5) {
       const generator = new PerformerGenerator();
       const newPerformer = await generator.generateNewPerformer();
@@ -182,3 +171,4 @@ class KillTonyAIController {
     }
   }
 }
+```
