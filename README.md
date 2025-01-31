@@ -1,6 +1,6 @@
 # AI Reenactment of Kill Tony in Hyperfy.io
 
-This conceptual summary outlines a hypothetical AI-driven reenactment of Kill Tony within the Hyperfy.io platform
+This conceptual summary outlines an AI-driven reenactment of Kill Tony within the Hyperfy.io platform
 
 Concept: The goal is to recreate the experience of Kill Tony using AI agents to portray the various participants, from Tony and Redban to the bucket pulls and guest comedians.  Hyperfy.io provides the virtual environment for this performance.
 
