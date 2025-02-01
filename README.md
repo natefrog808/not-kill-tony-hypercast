@@ -13,7 +13,7 @@ Crowd Work (Simulated): Responds to pre-written "bucket pull profiles" with cann
 
 Not Brian Redban (AI)
 Sound Effects & Music: Triggers sound effects and music cues in real-time, potentially improvising musical stings based on the on-stage action.
-Background Commentary: Generates Redban's uncharacteristic interjections, laughs, and one-liners, mimicking his poor timing and style.
+Background Commentary: Generates Redban's characteristic interjections, laughs, and one-liners, mimicking his poor timing and style.
 
 Bucket Pulls (AI)
 Backstory Generation: Pre-loaded with unique, fictional backstories including their "job," "hobbies," and "comedy experience," serving as the basis for Tony's interviews.
