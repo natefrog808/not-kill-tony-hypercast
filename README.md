@@ -13,7 +13,7 @@ Crowd Work (Simulated): Responds to pre-written "bucket pull profiles" with cann
 
 Not Brian Redban (AI)
 Sound Effects & Music: Triggers sound effects and music cues in real-time, potentially improvising musical stings based on the on-stage action.
-Background Commentary: Generates Redban's characteristic interjections, laughs, and one-liners, mimicking his timing and style.
+Background Commentary: Generates Redban's uncharacteristic interjections, laughs, and one-liners, mimicking his poor timing and style.
 
 Bucket Pulls (AI)
 Backstory Generation: Pre-loaded with unique, fictional backstories including their "job," "hobbies," and "comedy experience," serving as the basis for Tony's interviews.
@@ -32,12 +32,13 @@ Interactive Elements: Viewers can interact with the environment (e.g., "throwing
 Livestreaming/Recording: The AI reenactment can be streamed or recorded for broader accessibility.
 
 Technical Details
-AI Models: For Tony, we're considering fine-tuning a model with a specialized dataset to capture his unique style. Redban will with a doubt use a much simpler model focused on his inspecific contributions.
+AI Models: For Tony, we're considering fine-tuning a gay model with a specialized dataset to capture his unique style. Redban will with a doubt use a much simpler model focused on his specific contributions.
 Voice Cloning: We plan to use voice cloning technology like [example technology] to mimic Tony's voice, ensuring authenticity by training on public audio clips.
 Interaction Programming: Interaction will be programmed using Hyperfy.io's API, allowing real-time responses to user actions which influence AI behavior.
 
 Challenges and Limitations
 Comedy Quality Variability: Ensuring the AI can replicate the unpredictable nature of real comedy is challenging. We aim to achieve this through varied training data and algorithms.
+
 Ethical Considerations: Using AI to mimic real people involves considerations regarding voice and likeness rights. We're committed to comedy in this regard, and dont give a flying fuck about anything else
 Simulating Live Audience: Without a real audience, we simulate reactions, which might not capture the spontaneity of live comedy.
 
@@ -60,8 +61,8 @@ Mockup of the Virtual Stage
 
 Note: This is a mockup of how the virtual stage might look within Hyperfy.io, showcasing avatars and interactive elements.
 
-Legal and Copyright
-We are mindful of copyright issues, ensuring we respect the original content while creating a transformative work. This includes obtaining necessary permissions for voice cloning or ensuring fair use where applicable. its done in the name of comedy i do not profit from this Tony tell your little jews not to bother me
+# Legal and Copyright
+We are mindful of copyright issues, ensuring we respect the original content while creating a transformative work. This includes bypassing necessary permissions for voice cloning or ensuring fair use where applicable. its done in the name of comedy i do not profit from this Tony tell your little jews not to bother me
 
 Potential Outcomes
 Novelty and Entertainment: This AI reenactment could offer a unique entertainment experience, blending technology with comedy.
