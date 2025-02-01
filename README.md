@@ -1,5 +1,5 @@
 
-# AI Reenactment of Not Kill Tony in Hyperfy.io
+# AI Reenactment of Kill Tony in Hyperfy.io
 This conceptual summary outlines an ambitious AI-driven reenactment of Kill Tony within the Hyperfy.io platform.
 
 Concept
