@@ -1,3 +1,10 @@
+# If using components structure
+mkdir -p src/components
+touch src/components/AnalyticsDashboard.tsx
+
+# OR if using features structure
+mkdir -p src/features/analytics
+touch src/features/analytics/AnalyticsDashboard.tsx
 ```typescript
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
