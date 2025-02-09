@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: killtony-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: killtony-frontend
+  template:
+    metadata:
+      labels:
+        app: killtony-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: killtony-frontend:latest
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+          requests:
+            cpu: "200m"
+            memory: "512Mi"
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
