@@ -1,4 +1,4 @@
-# AI Kill Tony Platform
+# Not Kill Tony Hypercast
 
 An advanced AI-powered comedy show platform that recreates the Kill Tony experience using artificial intelligence, real-time audience interaction, and dynamic performance generation.
 
