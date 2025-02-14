@@ -1,240 +1,222 @@
-# Not Kill Tony Hypercast
+# Not Kill Tony AI Platform
 
-An advanced AI-powered comedy show platform that recreates the Kill Tony experience using artificial intelligence, real-time audience interaction, and dynamic performance generation.
+An automated AI-powered comedy show platform that recreates the comedy show experience using artificial intelligence, real-time audience interaction, and dynamic performance generation.
 
 ## 🎭 Overview
 
-The AI Kill Tony Platform is a sophisticated system that combines machine learning, real-time audio/video processing, and audience interaction to create an engaging virtual comedy show experience. The platform features AI-powered comedians, automated show management, and real-time audience feedback analysis.
+The Not Kill Tony AI Platform is a sophisticated system that combines machine learning, real-time audio/video processing, and audience interaction to create an engaging virtual comedy show experience. The platform features AI-powered comedians, automated show management, and real-time audience feedback analysis.
 
-## 🏗️ Core Architecture
+### Key Features
 
-### Key Components
+- 🤖 AI-powered humor generation with context awareness
+- 🎭 Dynamic performance adaptation based on audience reaction
+- 📊 Real-time analytics and performance monitoring
+- 🎬 Automated show management and flow control
+- 🔒 Enterprise-grade security and compliance
+- 📈 Comprehensive performance optimization
+- 🔄 Automated scaling and reliability features
 
-- **Performer Generation System**
-  - Dynamic personality generation
-  - Comedy style adaptation
-  - Background story creation
-  - Performance history tracking
+## 🏗️ Architecture
 
-- **Voice Synthesis**
-  - Custom voice profile generation
-  - Real-time speech synthesis
-  - Emotion and timing control
-  - Performance delivery optimization
+The platform follows a microservices architecture with the following key components:
 
-- **Show Management**
-  - Real-time show control
-  - Performance queuing
-  - Technical status monitoring
-  - Audience metrics tracking
-
-- **Analytics & Feedback**
-  - Real-time sentiment analysis
-  - Audience engagement tracking
-  - Performance metrics collection
-  - Automated feedback processing
-
-- **Monitoring & Reliability**
-  - System health monitoring
-  - Performance optimization
-  - Error detection and recovery
-  - Automated scaling
-
-### Technical Stack
-
-- **Frontend**
-  - React with TypeScript
-  - Tailwind CSS
-  - Recharts for visualizations
-  - WebSocket for real-time updates
-
-- **Backend**
-  - Node.js/TypeScript
-  - WebSocket for real-time communication
-  - Redis for caching
-  - MongoDB for data persistence
-
-- **AI/ML Components**
-  - TensorFlow.js for client-side inference
-  - ElevenLabs API for voice synthesis
-  - Custom emotion detection models
-  - Real-time sentiment analysis
-
-- **DevOps**
-  - Docker containerization
-  - Kubernetes orchestration
-  - AWS infrastructure
-  - Automated CI/CD pipeline
-
-## 🚀 Features
-
-### Show Management
-- Real-time show control dashboard
-- Automated performer queue management
-- Technical status monitoring
-- Performance timing control
-
-### AI Performers
-- Dynamic personality generation
-- Contextual joke generation
-- Voice synthesis with emotional variation
-- Adaptive performance style
-
-### Audience Interaction
-- Real-time reaction processing
-- Sentiment analysis
-- Engagement metrics
-- Dynamic show pacing
-
-### Analytics & Monitoring
-- Performance metrics dashboard
-- Audience engagement tracking
-- System health monitoring
-- Automated issue detection
-
-## 🛠️ Setup & Installation
-
-1. **Prerequisites**
-```bash
-node >= 18.0.0
-npm >= 9.0.0
-Docker >= 20.10.0
-kubectl >= 1.25.0
+```
+src/
+├── ai/
+│   ├── emotion-detection/      # Audience emotion analysis
+│   └── humor-generation/       # AI comedy generation
+├── analytics/                  # User and performance analytics
+├── animation/                  # Avatar animations
+├── components/                 # React components
+├── controllers/               # Show control logic
+├── infrastructure/            # System infrastructure
+└── monitoring/                # System monitoring
 ```
 
-2. **Clone and Install**
+See the full architecture diagram at [docs/architecture/system-architecture.mmd](docs/architecture/system-architecture.mmd).
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 18.0.0
+- Docker ≥ 20.10.0
+- Kubernetes ≥ 1.25.0
+- NPM ≥ 9.0.0
+
+### Installation
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-org/ai-kill-tony.git
-cd ai-kill-tony
+git clone https://github.com/yourusername/not-kill-tony.git
+cd not-kill-tony
+```
+
+2. Install dependencies:
+```bash
 npm install
 ```
 
-3. **Environment Configuration**
+3. Configure environment:
 ```bash
 cp .env.example .env
-# Configure your environment variables
+# Edit .env with your configuration
 ```
 
-4. **Start Development Environment**
+4. Start development server:
 ```bash
 npm run dev
 ```
 
-5. **Production Deployment**
+### Docker Deployment
+
 ```bash
 # Build containers
-docker-compose build
+docker-compose -f infra/docker/docker-compose.yml build
 
-# Deploy to Kubernetes
-kubectl apply -f k8s/
+# Start services
+docker-compose -f infra/docker/docker-compose.yml up -d
 ```
 
-## 🔧 Configuration
+### Kubernetes Deployment
 
-The platform can be configured through various environment variables and configuration files:
-
-- `.env` - Core environment configuration
-- `config/` - Component-specific configurations
-- `k8s/` - Kubernetes deployment configurations
+```bash
+# Apply configurations
+kubectl apply -f infra/kubernetes/deployments/
+kubectl apply -f infra/kubernetes/ingress/
+kubectl apply -f infra/kubernetes/autoscaling/
+```
 
 ## 🧪 Testing
 
-The platform includes comprehensive testing:
+The platform includes comprehensive testing at multiple levels:
 
+### Unit Tests
 ```bash
-# Run unit tests
-npm run test
+npm run test:unit
+```
+Located in `src/*/**/__tests__/*.test.ts`
 
-# Run integration tests
+### Integration Tests
+```bash
 npm run test:integration
+```
+Located in `src/tests/suites/`
 
-# Run end-to-end tests
-npm run test:e2e
+### Performance Tests
+```bash
+npm run test:performance
+```
 
-# Run load tests
+### Load Tests
+```bash
 npm run test:load
 ```
+Located in `src/testing/load/`
+
+## 🔧 Key Components
+
+### AI Humor Generation
+The system uses advanced NLP and machine learning to generate contextually appropriate humor:
+- Context-aware joke generation
+- Style adaptation based on audience
+- Real-time performance adjustment
+
+```typescript
+// Example humor generation
+const humorSystem = new AIHumorGenerationSystem();
+const joke = await humorSystem.generateJoke({
+  context: "tech conference",
+  style: "observational"
+});
+```
+
+### Emotion Detection
+Real-time audience emotion analysis:
+- Facial expression analysis
+- Crowd sentiment tracking
+- Engagement metrics
+
+### Performance Dashboard
+Comprehensive real-time monitoring:
+- Audience engagement metrics
+- System performance stats
+- Show analytics
 
 ## 📈 Monitoring & Analytics
 
-The platform provides extensive monitoring capabilities:
+### Real-time Metrics
+- Audience engagement levels
+- Laugh detection analysis
+- System performance metrics
+- Error tracking and alerts
 
-- Real-time performance metrics
-- Audience engagement analytics
-- System health monitoring
-- Error tracking and alerting
+### Performance Optimization
+- Automated resource scaling
+- Performance bottleneck detection
+- Predictive load management
 
-## 🔐 Security
+## 🔒 Security
 
-Security features include:
-
+- Role-based access control (RBAC)
 - End-to-end encryption
-- Role-based access control
-- Rate limiting
-- Input validation
-- Security audit logging
+- Compliance management
+- Automated security scanning
+- Real-time threat detection
 
-## 🤝 Contributing
+## 🏗️ Project Structure
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+```
+.
+├── .github/workflows/        # CI/CD configurations
+├── docs/                     # Documentation
+├── infra/                    # Infrastructure configs
+│   ├── docker/
+│   └── kubernetes/
+└── src/                      # Source code
+    ├── ai/                   # AI components
+    ├── analytics/            # Analytics systems
+    ├── components/           # React components
+    └── monitoring/           # Monitoring systems
+```
 
-- Code style and standards
-- Pull request process
-- Development workflow
-- Testing requirements
+## 🔄 CI/CD
+
+Automated pipeline for testing and deployment:
+- Automated testing
+- Docker image building
+- Kubernetes deployment
+- Performance benchmarking
+
+## 📚 Documentation
+
+- API Documentation: [docs/api/v1/README.md](docs/api/v1/README.md)
+- System Documentation: [docs/system/README.md](docs/system/README.md)
+- Testing Guide: [docs/testing/testing-guide.md](docs/testing/testing-guide.md)
+
+## 🛠️ Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🎯 Roadmap
-
-Timeline for Implementation:
-Week 1-2:
-
-Infrastructure improvements
-Service mesh implementation
-Security enhancements
-
-Week 3-4:
-
-Code quality improvements
-Documentation updates
-Testing framework setup
-
-Week 5-6:
-
-AI/ML optimizations
-Performance improvements
-UI/UX enhancements
-
-Week 7-8:
-
-DevOps improvements
-Monitoring setup
-Final testing and optimization
-
-Key Success Metrics:
-
-100% test coverage
-<100ms response time
-99.99% uptime
-Zero security vulnerabilities
-<1s page load time
-100% automated deployment
-AAA accessibility rating
-
-## 📞 Support
+## 🤝 Support
 
 For support and questions:
 - Create an issue in the repository
-- Contact @reefchaingang on X
+- Contact the development team
 - Check our documentation
 
 ## 🙏 Acknowledgments
 
 Special thanks to:
-- ElevenLabs for voice synthesis
 - TensorFlow.js team
-- Open source community
-- Reality spiral team
+- React community
+- Open source contributors
+- Reality Spiral Team
