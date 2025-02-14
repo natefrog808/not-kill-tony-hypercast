@@ -1,6 +1,6 @@
 # Not Kill Tony Show
 
-An automated AI-powered comedy show platform that recreates the comedy show experience using artificial intelligence, real-time audience interaction, and dynamic performance generation.
+An automated AI-powered comedy platform that recreates the live Kill Tony experience using artificial intelligence, real-time audience interaction, and dynamic performance generation.
 
 ## 🎭 Overview
 
