@@ -1,0 +1,58 @@
+graph TB
+    subgraph Frontend ["Frontend Layer"]
+        UI[React UI]
+        WS[WebSocket Client]
+    end
+
+    subgraph APILayer ["API Gateway"]
+        API[API Gateway]
+        WSS[WebSocket Server]
+    end
+
+    subgraph CoreServices ["Core Services"]
+        Show[Show Controller]
+        Voice[Voice Synthesis]
+        Emotion[Emotion Detection]
+        Performance[Performance Optimization]
+    end
+
+    subgraph AILayer ["AI Layer"]
+        LLM[LLM Manager]
+        Avatar[Avatar Animation]
+        Recommend[Recommendation Engine]
+    end
+
+    subgraph Infrastructure ["Infrastructure"]
+        Monitor[Monitoring System]
+        Analytics[Analytics Platform]
+        Security[Security System]
+    end
+
+    subgraph Storage ["Data Layer"]
+        Redis[(Redis Cache)]
+        Mongo[(MongoDB)]
+    end
+
+    UI --> API
+    UI <--> WS
+    WS <--> WSS
+    WSS --> Show
+    API --> Show
+    Show --> Voice
+    Show --> Emotion
+    Show --> Performance
+    Show --> LLM
+    LLM --> Avatar
+    Performance --> Redis
+    Show --> Mongo
+    Analytics --> Mongo
+    Monitor --> Show
+    Security --> API
+
+    classDef primary fill:#2563eb,stroke:#1e40af,color:white
+    classDef secondary fill:#4b5563,stroke:#374151,color:white
+    classDef storage fill:#059669,stroke:#047857,color:white
+    
+    class UI,WS,API,WSS primary
+    class Show,Voice,Emotion,Performance,LLM,Avatar,Recommend secondary
+    class Redis,Mongo storage
